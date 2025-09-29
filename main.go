@@ -111,13 +111,13 @@ func (h *rssHandler) reload() {
     }
     tagParts = append(tagParts, "Reload")
 
-    // ✅ Clear old tag (after the vertical bar) using cleartag
+
     h.win.Ctl("cleartag")
 
-    // Now write new tag parts
+    //write new tag parts
     h.win.Write("tag", []byte(strings.Join(tagParts, " ")))
 
-    // Write body contents
+    // write content
     h.win.Fprintf("body", "Feed: %s (%s)\n\n", feed.Title, h.current.URL)
     for i, item := range feed.Items {
         date := ""
